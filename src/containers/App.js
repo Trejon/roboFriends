@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import Header from '../components/Header';
 import ErrorBoundry from '../components/ErrorBoundry';
 import './App.css';
 import { connect } from 'react-redux'
-import { setSearchField } from '../actions/actions';
+import { setSearchField, requestRobots } from '../actions/actions';
 
 class App extends Component {
   constructor() {
@@ -31,7 +32,7 @@ class App extends Component {
       <h1>Loading</h1> :
       (
         <div className='tc'>
-          <h1 className='f1'>RoboFriends</h1>
+          <Header />
           <SearchBox searchChange={onSearchChange}/>
           <Scroll>
             <ErrorBoundry>
@@ -45,13 +46,16 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    searchField: state.searchField
+    searchField: state.searchRobots.searchField,
+    robots: state.requestRobots.robots,
+    isPending: state.requestRobots.isPending
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSearchChange: (e) => dispatch(setSearchField(e.target.value))
+    onSearchChange: (e) => dispatch(setSearchField(e.target.value)),
+    onRequestRobots: () => dispatch(requestRobots())
   }
 }
 
