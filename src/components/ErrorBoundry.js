@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ErrorBoundry extends Component {
   constructor() {
-    super(); 
+    super();
     this.state = {
-      hasError: false
-    }
+      hasError: false,
+    };
   }
 
   componentDidCatch(error, info) {
     this.setState({
-      hasError: true
-    })
+      hasError: true,
+    });
   }
 
   render() {
@@ -20,9 +20,9 @@ class ErrorBoundry extends Component {
         <div>
           <h1>Oooopps. That is not good.</h1>
         </div>
-      )
+      );
     }
-      return this.props.children
+    return this.props.children;
   }
 }
 
