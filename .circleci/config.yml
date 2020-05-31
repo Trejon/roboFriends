@@ -1,6 +1,6 @@
 version: 2 
 jobs: 
-  bobby: 
+  james: 
     docker: 
       - image: circleci/ruby:2.4.1
     steps: 
@@ -16,5 +16,5 @@ jobs:
     version: 2
     bobby_sally:
       jobs:
-        - bobby
+        - james
         - sally
