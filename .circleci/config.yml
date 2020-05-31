@@ -14,7 +14,7 @@ jobs:
       - run: echo "Double trouble"
 workflows: 
   version: 2
-  bobby_sally:
+  james_sally:
     jobs:
       - james
       - sally
